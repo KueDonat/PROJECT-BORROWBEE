@@ -23,7 +23,8 @@ typedef enum
     MENU_VENDOR,
     MENU_USERS,
     MENU_RUANGAN,
-    MENU_PEMINJAMAN 
+    MENU_PEMINJAMAN,
+    MENU_TOKEN
 } AdminMenuState;
 
 // --- STRUCT DATA ---

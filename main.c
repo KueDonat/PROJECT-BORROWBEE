@@ -12,10 +12,10 @@ char g_currentUserRole[20] = "";
 int main(void)
 {
     InitWindow(1320, 780, "BorrowBee System");
-    
+
     SetTargetFPS(60);
 
-    if (!astra_connect(&g_db, "borrowbee;UID=lat;PWD=lat123")) // Ganti DSN sesuai ODBC kamu
+    if (!astra_connect(&g_db, "project_astra")) // Ganti DSN sesuai ODBC kamu
     {
         printf("Gagal Connect DB!\n");
     }
@@ -23,7 +23,7 @@ int main(void)
     Texture2D imageLogo = LoadTexture("Borrowbee.png");
 
     // Inisialisasi awal dashboard admin (opsional, biar tabel siap)
-    void InitDashboardAdmin(AstraDB *db);
+    void InitDashboardAdmin(AstraDB * db);
 
     AppState currentScreen = STATE_MENU;
 
@@ -32,7 +32,8 @@ int main(void)
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
-        if(IsKeyPressed(KEY_F11)){
+        if (IsKeyPressed(KEY_F11))
+        {
             ToggleFullscreen();
         }
 

@@ -56,12 +56,18 @@ int astra_connect(AstraDB *db, const char *dsn_name);
 void astra_disconnect(AstraDB *db);
 
 // Fungsi Logika Bisnis
-int astra_register(AstraDB *db, const char *user, const char *email_addr, const char *pass, const char *role_name);
+// Tambahkan parameter const char *fullname
+int astra_register(AstraDB *db, const char *fullname, const char *user, const char *email_addr, const char *pass, const char *role_name);
 
 // Fungsi Helper SQL
 int astra_query(AstraDB *db, const char *sql);
 int astra_fetch_row(AstraDB *db);
 int astra_execute(AstraDB *db, const char *sql);
 void show_error(unsigned int handleType, const SQLHANDLE handle);
+// Cek apakah token ada dan belum terpakai. Return 1 jika valid, 0 jika tidak.
+int astra_check_token(AstraDB *conn, const char *token);
+
+// Tandai token sebagai 'sudah dipakai' agar tidak bisa dipakai 2x
+void astra_use_token(AstraDB *conn, const char *token);
 
 #endif
